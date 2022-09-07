@@ -1,0 +1,53 @@
+<html>
+
+<head>
+  <title> Imersão Dev Alura - Aula 01</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="page-title">
+      Conversor de moeda</h1>
+    <p class="page-subtitle">
+      Insira o valor que você deseja converter
+    </p>
+    <div class="meio">
+      <select id="opcaoMoeda">
+        <option value=" dolares">Dollar (USD)</option>
+        <option value=" euros">Euro (EUR)</option>
+      </select>
+      <input type="number" name="txt" placeholder="Ex: 20" id="pequena">
+      <input type="button" value="CONVERTER" onclick="gerar()" id="botao">
+      <input type="reset" name="b2" value="Limpar" onclick="limpar()" id="botao-limpar">
+      <h1 id="conversoJanela"></h1>
+      <P>1 USD = 5,52 BRL</br> 1 EUR = 5,23 </P>
+    </div>
+  </div>
+
+</body>
+<script>
+  function gerar() {
+    let moedaSelecionada = document.getElementById('opcaoMoeda').value;
+    var txt1 = document.querySelector("input#pequena");
+    var res = document.querySelector("div#conversoJanela");
+    var tx = txt1.value;
+    var dollar = 10;
+    var euro = 20;
+    if (moedaSelecionada == "dollar") {
+      var convert = (tx * dollar).toFixed(2);
+    } else {
+      var convert = (tx * euro).toFixed(2);
+    }
+    var dec = convert;
+    conversoJanela.innerHTML = `<strong> ${tx} ${moedaSelecionada} ${dec} BRL </strong>`;
+  }
+
+  function limpar() {
+    document.getElementById('pequena').value = "";
+    conversoJanela.innerHTML = '';
+
+  }
+</script>
+
+</html>
